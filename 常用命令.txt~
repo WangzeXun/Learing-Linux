@@ -1,0 +1,17 @@
+1.ls (opt) [文件或者路径](路径不加就表示是当前路径)
+  opt:
+	-a 显示所有文件，隐藏文件（系统文件）
+	-l 显示详细信息   (注：很多时候都用ll代替ls -l,这是别名里面设定的，可以更改) 
+	-d 查看目录属性 (查看目录本身的属性)
+	-h 人性化显示文件大小 (表示成多少K，多少M)
+	-i 显示inode  
+2.mkdir -p [目录名]  (make directories)
+  -p 递归创建   (mkdir -p /wzx/bxy)
+3.cd [目录]  (change directory)
+  cd    进入当前用户家目录
+  cd -  进入上次目录
+  cd .. 进入上一级目录
+4.pwd (print working directory)
+5.rm -rf [文件或者目录] (remove)
+  -r  删除目录
+  -f  强制     (一般用的时候就把两个都加上)
