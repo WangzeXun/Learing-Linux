@@ -1,0 +1,37 @@
+1.Shell是一个命令行解释器
+2分类：
+	Bourne Shell(BShell)，包含sh、ksh、Bash(Linux中标准)、psh、zsh
+	C Shell (Unix)，包含csh、tcsh
+3.Linux中支持的Shell（在/etc/shells中查看），进入那种shell，直接输入就行，如sh,csh，退出为exit
+  一个shell中可以调用另一个shell，一直调用下去，变为儿子辈、孙子辈的
+4.echo (opt) [输出内容]
+  opt:
+	-e  支持反斜线控制的字符转换
+		\b    退格符，向左删除键
+		\n    换行符 
+		\r    回车键
+		\t    制表符
+		\v    垂直制表符
+		\0nnn 八进制ASCII码输出字符
+		\xhh  十六进制ASCII码输出字符
+  echo -e "\e[1;31m wzx love bxy \e[0m"
+		30m=黑色，31m=红色，32m=绿色，33m=黄色，34m=蓝色，35m=洋红，36m=青色，37m=白色
+5.脚本
+	1.#代表注释
+	2.第一行必须加#!/bin/bash
+	3.执行的时候可以用：bash+文件名执行，也可以用chomd 755赋予执行权限后直接文件名（最好用绝对路径）执行
+6.alias
+	（查看系统中所有命令的别名）
+  alias 别名=‘'原命令'
+	（设定命令别名，临时生效）
+  vi ~/.bashrc
+	（写入环境变量配置文件，别名永久生效，执行source .bashrc会直接生效）
+  unalias 别名
+	（删除别名）
+7.history (opt) [历史命令保存文件]
+	（直接history就是系统中操作的历史命令）
+  opt:
+	-c  清空历史命令（尽量不要清空）
+	-w  把缓存中的历史命令写入历史命令保存文件~/.bash_history（默认保存1000条，可在/etc/profile中hisysize修改）
+
+
