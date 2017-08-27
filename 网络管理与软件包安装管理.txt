@@ -46,3 +46,32 @@
     （1）网卡信息文件（/etc/sysconfig/network-scripts/ifcfg-网卡名）
     （2）主机名文件（/etc/sysconfig/network）
     （3）DNS配置文件（/etc/resolv.conf）
+9.Linux中的软件包
+    （1）源码包：开源，自定义性强，适合自己的系统，稳定性也高，卸载方便；安装过程多，编译时间长，安装时间长
+    （2）二进制包（RPM包）：管理系统简单，只需要简单的命令就可以安装，并且安装速度快；不能看到源代码，自定义性差，依赖性强
+
+  （注：脚本安装包是高手把复杂的软件包安装过程写成了程序脚本，让其自动安装，其实质还是源码包和二进制包）
+10.RPM包
+    （1）RPM包在系统光盘目录（Packages）中，可以挂载查看
+    （2）RPM包命名原则：名称，版本，发布次数，适合的Linux平台，适合的硬件平台，扩展名
+    （3）依赖性：a->b->c（装c,后b，最后a）；a->b->c->a（一起安装a,b,c）；模块依赖，查询网站：www.rpmfind.net
+    （4）当操作没有安装的软件包时，使用包全名，也必须是绝对路径（安装升级）；操作已经安装的软件包时，使用包名称，是搜索/var/lib/rpm中的数据库（卸载查询） 
+11.Yum源文件
+    （1）文件地址：/etc/yum.repos.d/CentOS-Base.repo
+    （2）光盘搭建yum源（无网络的情况下）
+            1）挂载光盘（mount）
+            2）使网络yum源失效（进入源目录，修改Base的后缀名使其失效）
+            3）使光盘yum源生效（CentOS-Media.repo）
+12.源码包和RPM包
+    （1）RPM包不建议指定安装位置，安装目录很多，删除用命令；源码包建议安装目录/user/local/软件名，没有卸载命令，直接删除安装目录
+    （2）两者的启动方式也不同，RPM包启动用service 包名称 start；停止用service 包名称 stop;
+    （3）源码包下载地址：http://mirror.bit.edu.cn
+    （4）源码包保存位置：/usr/local/src/；软件安装位置：/usr/local/
+    （5）源码包安装过程：
+            1）下载源码包
+            2）解压缩下载的源码包
+            3）进入解压缩目录
+            4）./configure  软件配置与检查（这里指定安装位置），会产生Makefile文件；
+            5）make 编译（报错执行make clean）；
+            6）make install 编译安装（报错执行make clean和删除local下的文件）
+            7）启动看包里面目录下的INSTALL

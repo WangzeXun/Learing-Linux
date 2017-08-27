@@ -384,4 +384,71 @@
     （下载文件，-r表示目录）
 90.scp [-r] 本地文件 用户名@ip:上传路径
     （上传文件，-r表示目录）
-
+91.rpm -ivh 包全名
+    （RPM安装，应该在Packages目录下或者使用绝对路径）
+        -i(install)  安装
+        -v  显示详细信息
+        -h  显示进度
+92.rpm -Uvh 包全名
+    （RPM包升级）
+        -U(update)  升级
+93.rpm -e 包名
+    （卸载RPM包，在任何地方都行，也有依赖性）
+        -e(erase)   卸载
+94.RPM包查询
+   rpm -q 包名
+    （查询包是否安装）
+        -q(query)   查询   
+   rpm -qa
+    （查询所有已经安装的RPM包）
+        -a(all)  所有
+   rpm -qi 包名
+    （查询安装包的详细信息）
+        -i(information)  查询详细软件信息
+        -p(packages)  查询未安装包信息，全名
+   rpm -ql 包名
+    （查询包中文件的安装位置）
+        -l(list)    列表
+        -p(packages)    查询未安装包信息
+   rpm -qf 系统文件名
+    （查询系统文件属于哪个RPM包）
+        -f(file)    查询系统文件属于哪个软件包
+   rpm -qR  包名
+    （查询软件包的依赖性，一般不用，直接安装让其报依赖性错误）
+        -R(requires)    查询软件包的依赖性
+        -p(packages)    查询未安装包信息
+95.RPM校验
+   rpm -V 已安装的包名
+    （校验指定RPM包中的文件）
+        -V(verify)  校验指定RPM包中的文件（可以看哪个文件被修改，8个内容）
+            S   文件大小是否改变
+            M   文件的类型或权限是否改变
+            5   文件的MD5校验和是否改变（可以看成文件内容是否改变）
+            D   设备的主从代码是否改变
+            L   文件的路径是否改变
+            U   文件的属主是否改变
+            G   文件的属组是否改变
+            T   文件的修改时间是否改变
+   rpm2cpio 包全名 | cpio -idv .文件绝对路径
+    （RPM包中文件提取，"."提取到当前目录下）
+        -rpm2cpio   将rpm包转换为cpio格式的命令
+        -cpio       标准工具，用于创建软件档案文件和从档案文件中提取文件
+96.yum 命令
+   yum list
+    （查询所有可用软件包列表）
+   yum search 关键字
+    （搜索服务器上所有和关键字相关的包）
+   yum -y install 包名称
+        -install    安装
+        -y          自动回答yes
+   yum -y update 包名称
+        -update     升级
+   yum -y remove 包名称
+        -remove     卸载
+   （注：服务器使用最小化安装，用什么软件安装什么，尽量不卸载）
+   yum grouplist
+    （列出所有可用的软件组列表）
+   yum froupinstall 软件组名
+    （安装指定软件组，组名可以由grouplist查询出来）
+   yum groupremove 软件组名
+    （卸载指定软件组）
