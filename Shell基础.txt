@@ -32,7 +32,7 @@
 	（直接history就是系统中操作的历史命令）
   opt:
 	-c  清空历史命令（尽量不要清空）
-	-w  把缓存中的历史命令写入历史命令保存文件~/.bash_history（默认保存1000条，可在/etc/profile中hisysize修改）
+	-w  把缓存中的历史命令写入历史命令保存文件~/.bash_history（默认保存1000条，可在/etc/profile中histsize修改）
 
 8.输出重定向
 	标准输出重定向：
