@@ -461,3 +461,19 @@
     0022：第一位的0是文件特殊权限，后面是文件默认权限
     文件默认权限最高666，文件默认权限是最高减去umask的值，这种减必须换算成字母来进行
     目录默认权限最高777，同样是减去umask的值
+100.getfcal 文件名
+    （查看acl权限）
+101.setfacl (opt) 文件名
+    （设定acl权限）
+   opt:
+        -m  给文件设定acl权限
+        -x  删除文件指定的acl权限
+        -b  删除文件所有的acl权限
+        -d  设定文件默认acl权限（对当前目录下以后新建的子文件设定默认的acl权限，setfacl -m d:u:lw:rx love）
+        -k  删除文件默认acl权限
+        -R  递归设定acl权限（对当前目录下已经存在的文件设定acl权限，setfacl -m u:lw:rx -R love，可能导致权限溢出）
+      setfacl -m(x) u:lw:rx love （给用户lw对文件love设定rx权限）
+      setfacl -m(x) g:tg:rx love （给用户组tg对文件love设定rx权限）
+      setfcal -m(x) m:rx 文件名  （对文件修改最大有效权限，可以通过mask控制最高权限）
+      
+
