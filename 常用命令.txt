@@ -500,5 +500,15 @@
     （查看文件的不可改变位权限）
    opt:
         -d  查看目录
-106.chkconfig --list
-    （查看服务自启动状态，可以看到所有RPM包安装的服务，查看启动服务可以用netstat）
+106.chkconfig --list    //systemctl list-unit-files
+    （查看服务自启动状态，可以看到所有RPM包安装的服务，前者是centos7之前的，后者是centos7的，查看启动服务可以用netstat查看端口）
+107./etc/init.d/独立服务名 start|stop|status|restart // systemctl start|stop|status|restart 独立服务名
+    （独立服务的启动，前者是centos7之前的，后者是centos7的）
+    service 独立服务名 start|stop|status|restart    这个都可以，最好用这个
+108.chkconfig （--level 运行级别）   独立服务名 on|off  //写入/etc/rc.d/rc.local文件   // ntsysv 命令管理自启动
+    （独立服务的自启动）
+109.服务的绝对路径  start|stop
+    （源码包安装服务的启动，不同的源码包的启动脚本不同，可以查看源码包的安装说明，查看启动脚本的方法）
+110.vi /etc/rc.d/rc/local 写入源码包的启动
+    （源码包服务的自启动）
+
