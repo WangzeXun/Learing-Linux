@@ -124,6 +124,12 @@
         例：
             ff=$(($aa+$bb))     最好用这种
             ff=$[$aa+$bb]
-
-
-
+27.source 配置文件
+    （重新加载环境配置文件）
+28.环境配置文件
+    （1）/etc/profile   改历史命令条数
+    （2）~/.bashrc      改别名
+    （3）/etc/bashrc    改登录提示符PS1
+    （4）~/.bash_logout 注销时生效的环境变量配置文件
+    （5）/etc/issue     本地终端提示信息
+    （6）/etc/issue.net 远程终端提示信息
