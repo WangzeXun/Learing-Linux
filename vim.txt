@@ -60,6 +60,7 @@ set guioptions-=m       "隐藏菜单栏
 set noeb		"去掉输入错误的提示音
 set confirm    "在处理未保存或只读文件时，弹出确认
 set nobackup   "禁止生成临时文件
+set noundofile
 set noswapfile 
 set ignorecase "搜索时忽略大小写
 
